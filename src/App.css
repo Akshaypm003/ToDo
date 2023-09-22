@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #020631;
+  background:#129e80 linear-gradient(to right, #1d6285 ,#129e80);
 }
 
 .app {
@@ -16,6 +16,16 @@ body {
 
 .app .mainHeading h1 {
   text-align: center;
+}
+
+
+.app .subHeading .bin {
+  font-size: 26px;
+  display: block;
+  margin-inline: auto;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
 }
 
 .app h1,

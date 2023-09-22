@@ -18,7 +18,13 @@ function App() {
       </div>
       <div className="subHeading">
         <br />
-        <h2>Whoop, it's Wednesday 🌝 ☕ </h2>
+        <h2>Whoop, it's Wednesday 🌝 ☕ </h2> <br />
+        <button onClick={(e)=>{
+          setToDos(toDos.filter(obj=>{
+            if (!obj.status) {return obj}
+          }
+          ))
+        }} className='bin'>🚮</button>
       </div>
       <div className="input">
         <input value={toDo} onChange={(e)=>{
@@ -29,7 +35,7 @@ function App() {
         }} className="fas fa-plus"></i>
       </div>
       <div className="todos">
-        {toDos.map((obj)=>{
+        {toDos.map((obj,i)=>{
           return(
             <div className="todo">
               <div className="left">
@@ -40,8 +46,9 @@ function App() {
                       obj2.status = e.target.checked ;
                     } return obj2 ;
                   })) ;
-                }}  type="checkbox" name="" id="" />
-                <p>{obj.text}</p>
+
+                }}  type="checkbox" name="" id="checkBox" />
+                <p>{`${i+1}.) ${obj.text}`}</p>
               </div>
               <div className="right">
                 <i className="fas fa-times"></i>
