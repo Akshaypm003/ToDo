@@ -31,6 +31,7 @@ h2 {
 
 .app .input {
   margin-top: 0.8em;
+  margin-inline:auto;
   width: 20em;
   height: 2em;
   background-color: white;
