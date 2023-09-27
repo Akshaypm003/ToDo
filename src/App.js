@@ -9,6 +9,10 @@ function App() {
 
   const [toDo,setToDo] = useState('');
   const [toDos,setToDos] = useState([]);
+
+  // const singleDeleteHandler=obj=>{
+  //       setToDos(toDos.filter(curObj=>curObj.id !== obj.id))
+  // }
   
 
   return (
@@ -19,19 +23,16 @@ function App() {
       <div className="subHeading">
         <br />
         <h2>Whoop, it's Wednesday 🌝 ☕ </h2> <br />
-        <button onClick={(e)=>{
-          setToDos(toDos.filter(obj=>{
-            if (!obj.status) {return obj}
-          }
-          ))
-        }} className='bin'>🚮</button>
+        <button onClick={(e)=>{ setToDos(toDos.filter(obj=>!obj.status )) }} 
+         className='bin'>🚮</button>
       </div>
       <div className="input">
         <input value={toDo} onChange={(e)=>{
           setToDo(e.target.value)
         }}  type="text" placeholder="🖊️ Add item..." />
         <i onClick={(e)=>{
-          setToDos([...toDos,{id:Date.now(), text:toDo, status:false}])
+          setToDos([...toDos,{id:Date.now(), text:toDo, status:false}]);
+          setToDo('');
         }} className="fas fa-plus"></i>
       </div>
       <div className="todos">
@@ -45,13 +46,15 @@ function App() {
                     if (obj2.id === obj.id){
                       obj2.status = e.target.checked ;
                     } return obj2 ;
-                  })) ;
-
-                }}  type="checkbox" name="" id="checkBox" />
+                  })) ;}}
+                type="checkbox" name="" id="checkBox" checked={obj.status} />
                 <p>{`${i+1}.) ${obj.text}`}</p>
               </div>
               <div className="right">
-                <i className="fas fa-times"></i>
+                <i onClick={(e)=>{
+                    setToDos(toDos.filter(curObj=>curObj.id !== obj.id))
+                }} 
+                className="fas fa-times"></i>
               </div>
             </div>
           )
