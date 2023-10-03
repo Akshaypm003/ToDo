@@ -57,21 +57,26 @@ function App() {
       <div className="todos mt-2 ">
         {toDos.map((obj, i) => {
           return (
-            <div className="todo">
-              <div className="left">
+            <div className="todo w-80 text-lg p-1 rounded-md flex justify-between bg-white mt-3 items-center">
+              <div className="left flex items-center">
                 <input
+                  className=" outline-none border-none"
                   onChange={(e) => hdlStatus(obj, e)}
                   type="checkbox"
                   name=""
                   id="checkBox"
                   checked={obj.status}
                 />
-
-                <p>{`${i + 1}.) ${obj.text}`}</p>
+                <p className="ms-2 text-lg font-bold text-gray-500 whitespace-normal">{obj.text}</p>
               </div>
 
               <div className="right">
-                <i onClick={(e) => hdlDelete(obj)} className="fas fa-times"></i>
+                <i
+                  onClick={(e) => {
+                    setToDos(toDos.filter((curObj) => curObj.id !== obj.id));
+                  }}
+                  className="fas fa-times  cursor-pointer text-xl text-gray-400 font-black me-1"
+                ></i>
               </div>
             </div>
           );

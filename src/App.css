@@ -20,39 +20,33 @@ body {
 
 .app .todos {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   flex-direction: column;
   max-height: 50vh;
   overflow-y: scroll;
 
 }
-/* .app .todos::-webkit-scrollbar {
+.app .todos::-webkit-scrollbar {
   display: none;
-} */
-.app .todos .todo {
+}
+/* .app .todos .todo {
   margin-top: 0.8em;
-  width: 20em;
-  height: 2em;
   background-color: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  border-radius: 6px;
-  padding: 5px;
-}
-.app .todos .todo .left {
+ 
+} */
+/* .app .todos .todo .left {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
+} */
 
 .app .todos .todo .left p {
-  margin-left: 3px;
-  font-size: medium;
-  font-weight: 700;
-  font-style: normal;
-  color: grey;
+ line-height: 1.3;
 }
+
 
 
