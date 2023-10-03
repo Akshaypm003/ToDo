@@ -53,30 +53,27 @@ function App() {
 
         <i onClick={() => hdlToDos()} className="fas fa-plus cursor-pointer text-xl text-gray-400 font-black me-1"></i>
       </div>
-
-      <div className="todos mt-2 ">
-        {toDos.map((obj, i) => {
-          return (
-            <div className="todo w-80 text-lg p-1 rounded-md flex justify-between bg-white mt-3 items-center">
-              <div className="left flex items-center">
-                <input
-                  className=" outline-none border-none"
-                  onChange={(e) => hdlStatus(obj, e)}
-                  type="checkbox"
-                  name=""
-                  id="checkBox"
-                  checked={obj.status}
-                />
-                <p className="ms-2 text-lg font-bold text-gray-500 whitespace-normal">{obj.text}</p>
+      <div className="todos">
+        {toDos.map((obj,i)=>{
+          return(
+            <div className="todo">
+              <div className="left">
+                <input onChange={(e)=>{
+                  setToDos(
+                    toDos.filter(obj2=>{
+                    if (obj2.id === obj.id){
+                      obj2.status = e.target.checked ;
+                    } return obj2 ;
+                  })) ;}}
+                type="checkbox" name="" id="checkBox" checked={obj.status} />
+                <p>{`${i+1}.) ${obj.text}`}</p>
               </div>
 
               <div className="right">
-                <i
-                  onClick={(e) => {
-                    setToDos(toDos.filter((curObj) => curObj.id !== obj.id));
-                  }}
-                  className="fas fa-times  cursor-pointer text-xl text-gray-400 font-black me-1"
-                ></i>
+                <i onClick={(e)=>{
+                    setToDos(toDos.filter(curObj=>curObj.id !== obj.id))
+                }} 
+                className="fas fa-times"></i>
               </div>
             </div>
           );

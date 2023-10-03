@@ -23,14 +23,8 @@ body {
   /* justify-content: center; */
   /* align-items: center; */
   flex-direction: column;
-  max-height: 50vh;
-  overflow-y: scroll;
-
 }
-.app .todos::-webkit-scrollbar {
-  display: none;
-}
-/* .app .todos .todo {
+.app .todos .todo {
   margin-top: 0.8em;
   background-color: white;
   display: flex;
